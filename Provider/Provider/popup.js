@@ -29,14 +29,30 @@ window.onload = () => {
     // }, (tabs) => {
     //     chrome.tabs.reload(tabs[0].id);
     // });
+    // console.log(tog);
+    // console.log(list);
 
-    console.log(tog);
-    console.log(list);
     chrome.storage.sync.get(null, function (obj) {
         console.log(obj);
     });
 
+    document.getElementById("b1").addEventListener("click", add1);
+    document.getElementById("c1").addEventListener("click", clearList1);
+    document.getElementById("ul1").addEventListener("click", remove1);
+    document.getElementById("b2").addEventListener("click", add2);
+    document.getElementById("c2").addEventListener("click", clearList2);
+    document.getElementById("ul2").addEventListener("click", remove2);
+    document.getElementById("b3").addEventListener("click", add3);
+    document.getElementById("c3").addEventListener("click", clearList3);
+    document.getElementById("ul3").addEventListener("click", remove3);
+    document.getElementById("b4").addEventListener("click", add4);
+    document.getElementById("c4").addEventListener("click", clearList4);
+    document.getElementById("ul4").addEventListener("click", remove4);
     document.getElementById("a1").addEventListener("click", toggle1);
+    document.getElementById("a2").addEventListener("click", toggle2);
+    document.getElementById("a3").addEventListener("click", toggle3);
+    document.getElementById("a4").addEventListener("click", toggle4);
+
     chrome.storage.sync.get(["key1"], function (obj) {
         if (obj.key1) {
             list[1] = obj.key1;
@@ -65,60 +81,42 @@ window.onload = () => {
     function togg1() {
         if (tog[1] !== false) {
             document.getElementById("a1").classList.add("btn-success");
-            document.getElementById("b1").addEventListener("click", add1);
-            document.getElementById("c1").addEventListener("click", clearList1);
-            document.getElementById("ul1").addEventListener("click", remove1);
         } else {
             document.getElementById("a1").classList.remove("btn-success");
             document.getElementById("a1").classList.add("btn");
-            document.getElementById("b1").removeEventListener("click", add1);
-            document.getElementById("c1").removeEventListener("click", clearList1);
-            document.getElementById("ul1").removeEventListener("click", remove1);
         }
     }
 
     function togg4() {
         if (tog[4] !== false) {
             document.getElementById("a4").classList.add("btn-success");
-            document.getElementById("b4").addEventListener("click", add4);
-            document.getElementById("c4").addEventListener("click", clearList4);
-            document.getElementById("ul4").addEventListener("click", remove4);
+
         } else {
             document.getElementById("a4").classList.remove("btn-success");
             document.getElementById("a4").classList.add("btn");
-            document.getElementById("b4").removeEventListener("click", add4);
-            document.getElementById("c4").removeEventListener("click", clearList4);
-            document.getElementById("ul4").removeEventListener("click", remove4);
+
         }
     }
 
     function togg2() {
         if (tog[2] !== false) {
             document.getElementById("a2").classList.add("btn-success");
-            document.getElementById("b2").addEventListener("click", add2);
-            document.getElementById("c2").addEventListener("click", clearList2);
-            document.getElementById("ul2").addEventListener("click", remove2);
+
         } else {
             document.getElementById("a2").classList.remove("btn-success");
             document.getElementById("a2").classList.add("btn");
-            document.getElementById("b2").removeEventListener("click", add2);
-            document.getElementById("c2").removeEventListener("click", clearList2);
-            document.getElementById("ul2").removeEventListener("click", remove2);
+
         }
     }
 
     function togg3() {
         if (tog[3] !== false) {
             document.getElementById("a3").classList.add("btn-success");
-            document.getElementById("b3").addEventListener("click", add3);
-            document.getElementById("c3").addEventListener("click", clearList3);
-            document.getElementById("ul3").addEventListener("click", remove3);
+
         } else {
             document.getElementById("a3").classList.remove("btn-success");
             document.getElementById("a3").classList.add("btn");
-            document.getElementById("b3").removeEventListener("click", add3);
-            document.getElementById("c3").removeEventListener("click", clearList3);
-            document.getElementById("ul3").removeEventListener("click", remove3);
+            
         }
     }
 
@@ -126,9 +124,6 @@ window.onload = () => {
         if (tog[1] === false) {
             console.log("added1");
             document.getElementById("a1").classList.add("btn-success");
-            document.getElementById("b1").addEventListener("click", add1);
-            document.getElementById("c1").addEventListener("click", clearList1);
-            document.getElementById("ul1").addEventListener("click", remove1);
             tog[1] = true;
             chrome.storage.sync.set({
                 togg: tog
@@ -138,9 +133,6 @@ window.onload = () => {
             console.log("removed1");
             document.getElementById("a1").classList.remove("btn-success");
             document.getElementById("a1").classList.add("btn");
-            document.getElementById("b1").removeEventListener("click", add1);
-            document.getElementById("c1").removeEventListener("click", clearList1);
-            document.getElementById("ul1").removeEventListener("click", remove1);
             tog[1] = false;
             chrome.storage.sync.set({
                 togg: tog
@@ -189,7 +181,7 @@ window.onload = () => {
 
 
 
-    document.getElementById("a2").addEventListener("click", toggle2);
+    
     chrome.storage.sync.get(["key2"], function (obj) {
         if (obj.key2) {
             list[2] = obj.key2;
@@ -216,9 +208,7 @@ window.onload = () => {
         if (tog[2] === false) {
             console.log("added2");
             document.getElementById("a2").classList.add("btn-success");
-            document.getElementById("b2").addEventListener("click", add2);
-            document.getElementById("c2").addEventListener("click", clearList2);
-            document.getElementById("ul2").addEventListener("click", remove2);
+
             tog[2] = true;
             chrome.storage.sync.set({
                 togg: tog
@@ -228,9 +218,7 @@ window.onload = () => {
             console.log("removed2");
             document.getElementById("a2").classList.remove("btn-success");
             document.getElementById("a2").classList.add("btn");
-            document.getElementById("b2").removeEventListener("click", add2);
-            document.getElementById("c2").removeEventListener("click", clearList2);
-            document.getElementById("ul2").removeEventListener("click", remove2);
+
             tog[2] = false;
             chrome.storage.sync.set({
                 togg: tog
@@ -277,7 +265,7 @@ window.onload = () => {
             reinject();
         });
     }
-    document.getElementById("a3").addEventListener("click", toggle3);
+    
     chrome.storage.sync.get(["key3"], function (obj) {
         if (obj.key3) {
             list[3] = obj.key3;
@@ -304,9 +292,7 @@ window.onload = () => {
         if (tog[3] === false) {
             console.log("added3");
             document.getElementById("a3").classList.add("btn-success");
-            document.getElementById("b3").addEventListener("click", add3);
-            document.getElementById("c3").addEventListener("click", clearList3);
-            document.getElementById("ul3").addEventListener("click", remove3);
+            
             tog[3] = true;
             chrome.storage.sync.set({
                 togg: tog
@@ -316,9 +302,6 @@ window.onload = () => {
             console.log("removed3");
             document.getElementById("a3").classList.remove("btn-success");
             document.getElementById("a3").classList.add("btn");
-            document.getElementById("b3").removeEventListener("click", add3);
-            document.getElementById("c3").removeEventListener("click", clearList3);
-            document.getElementById("ul3").removeEventListener("click", remove3);
             tog[3] = false;
             chrome.storage.sync.set({
                 togg: tog
@@ -366,7 +349,7 @@ window.onload = () => {
         });
     }
 
-    document.getElementById("a4").addEventListener("click", toggle4);
+    
     chrome.storage.sync.get(["key4"], function (obj) {
         if (obj.key4) {
             list[4] = obj.key4;
@@ -393,9 +376,7 @@ window.onload = () => {
         if (tog[4] === false) {
             console.log("added4");
             document.getElementById("a4").classList.add("btn-success");
-            document.getElementById("b4").addEventListener("click", add4);
-            document.getElementById("c4").addEventListener("click", clearList4);
-            document.getElementById("ul4").addEventListener("click", remove4);
+
             tog[4] = true;
             chrome.storage.sync.set({
                 togg: tog
@@ -405,9 +386,7 @@ window.onload = () => {
             console.log("removed4");
             document.getElementById("a4").classList.remove("btn-success");
             document.getElementById("a4").classList.add("btn");
-            document.getElementById("b4").removeEventListener("click", add4);
-            document.getElementById("c4").removeEventListener("click", clearList4);
-            document.getElementById("ul4").removeEventListener("click", remove4);
+
             tog[4] = false;
             chrome.storage.sync.set({
                 togg: tog
@@ -452,12 +431,6 @@ window.onload = () => {
             list[4] = [];
             renderList4(list[4]);
             reinject();
-            // chrome.tabs.query({
-            //     currentWindow: true,
-            //     active: true
-            // }, (tabs) => {
-            //     chrome.tabs.reload(tabs[0].id);
-            // });
         });
     }
 }
