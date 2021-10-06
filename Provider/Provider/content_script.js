@@ -11,15 +11,16 @@ call = ()=>{ultimate =()=>{
             let title =  document.querySelectorAll('h1.title.style-scope.ytd-video-primary-info-renderer')[0].innerText;
             title = title.trim();
             title = title.toLowerCase();
-            console.log(title);
+            // console.log(title);
             let descript = document.querySelector("div#description.style-scope.ytd-video-secondary-info-renderer").innerText;
-            // descript = descript.trim();
+            descript = descript.trim();
             descript = descript.toLowerCase();
-            console.log(descript);
+            // console.log(descript);
             let channel =  document.querySelectorAll('ytd-channel-name#channel-name')[0].innerText;
-            console.log(channel);
+            if(channel===null)channel = document.querySelector('#container.style-scope ytd-channel-name').innerText;            
             channel = channel.trim();
             channel = channel.toLowerCase();
+            // console.log(channel);
             if(tog[4]){
                 console.log("entered tog4");
                 let lst=[];
