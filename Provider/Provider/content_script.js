@@ -12,7 +12,7 @@ call = ()=>{ultimate =()=>{
             title = title.trim();
             title = title.toLowerCase();
             console.log(title);
-            let descript = document.getElementById('description').innerText;
+            let descript = document.querySelector("div#description.style-scope.ytd-video-secondary-info-renderer").innerText;
             // descript = descript.trim();
             descript = descript.toLowerCase();
             console.log(descript);
