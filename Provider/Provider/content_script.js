@@ -13,7 +13,7 @@ call = ()=>{ultimate =()=>{
             title = title.toLowerCase();
             console.log(title);
             let descript = document.getElementById('description').innerText;
-            descript = descript.trim();
+            // descript = descript.trim();
             descript = descript.toLowerCase();
             console.log(descript);
             let channel =  document.querySelectorAll('ytd-channel-name#channel-name')[0].innerText;
