@@ -27,4 +27,4 @@
       "service_worker": "background-wrapper.js"
     },
     "host_permissions":["https://www.youtube.com/watch?*"]
-  }
+}

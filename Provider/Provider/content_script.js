@@ -11,13 +11,13 @@ call = ()=>{ultimate =()=>{
             let title =  document.querySelectorAll('h1.title.style-scope.ytd-video-primary-info-renderer')[0].innerText;
             title = title.trim();
             title = title.toLowerCase();
-            // console.log(title);
+            console.log(title);
             let descript = document.getElementById('description').innerText;
             descript = descript.trim();
             descript = descript.toLowerCase();
-            // console.log(descript);
+            console.log(descript);
             let channel =  document.querySelectorAll('ytd-channel-name#channel-name')[0].innerText;
-            // console.log(channel);
+            console.log(channel);
             channel = channel.trim();
             channel = channel.toLowerCase();
             if(tog[4]){
